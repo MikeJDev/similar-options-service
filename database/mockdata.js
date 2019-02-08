@@ -100,32 +100,4 @@ const data =
 {"product_name":"Great cormorant","image_src":"http://dummyimage.com/134x100.png/cc0000/ffffff","review_stars":3,"review_count":6,"price":29.11,"product_description":"augue vel accumsan tellus nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum"},
 {"product_name":"Canadian river otter","image_src":"http://dummyimage.com/137x167.jpg/ff4444/ffffff","review_stars":5,"review_count":36,"price":31.55,"product_description":"mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis adipiscing lorem"}]
 
-
-
-
-// [
-//   {
-//     product_name: "hammer",
-//     product_description: 'Lorem ipsum dolor amet man bun chicharrones health goth pok pok art party, hexagon lo-fi knausgaard shaman. Art party adaptogen ethical blue bottle raw denim, bushwick butcher trust fund photo booth fanny pack cred chambray man bun sartoria',
-//     image_src: 'sampleurl1',
-//     review_stars: 3,
-//     review_count: 45,
-//     price: 20
-//   }, {
-//     product_name: 'saw',
-//     product_description: "Lorem ipsum dolor amet man bun chicharrones health goth pok pok art party, hexagon lo-fi knausgaard shaman. Art party adaptogen ethical blue bottle raw denim, bushwick butcher trust fund photo booth fanny pack cred chambray man bun sartoria",
-//     image_src: 'sampleurl2',
-//     review_stars: 4,
-//     review_count: 20,
-//     price: 15
-//   }, {
-//     product_name: 'jack hammer',
-//     product_description: 'Lorem ipsum dolor amet man bun chicharrones health goth pok pok art party, hexagon lo-fi knausgaard shaman. Art party adaptogen ethical blue bottle raw denim, bushwick butcher trust fund photo booth fanny pack cred chambray man bun sartoria',
-//     image_src: 'sampleurl3',
-//     review_stars: 3,
-//     review_count: 15,
-//     price: 17
-//   }
-// ]
-
 module.exports = data;
