@@ -3,11 +3,11 @@ const config = require('./config.js');
 const connection = mysql.createConnection(config);
 
 connection.connect(err => {
-    if(err) {
-        console.log('Error with DB connections')
-      } else {
-        console.log('We are connected to db!')
-      }
+  if(err) {
+    console.log('Error with DB connections')
+  } else {
+    console.log('We are connected to db!')
+  }
 });
 
 module.exports = connection;
