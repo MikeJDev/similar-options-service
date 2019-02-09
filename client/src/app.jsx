@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Axios from "axios";
+import ProductList from "./components/productList.jsx";
 
 class App extends React.Component {
     constructor(props) {
@@ -18,13 +19,21 @@ class App extends React.Component {
             products: response.data
           });
         });
-      }
 
+
+    }
+    
+    
 
     render() {
+        // const componentStyle = {
+        //     li 
+        //         display:inline;
+            
+        // }
         return (
             <div>
-              Testing the webpack/babel config.  Tesing one more time.
+              <ProductList products={this.state.products}/>
             </div>
         )
     }

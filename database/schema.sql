@@ -9,5 +9,5 @@ CREATE TABLE products (
   image_src VARCHAR(500) NOT NULL,
   review_stars INT NOT NULL, 
   review_count INT NOT NULL,
-  price INT NOT NULL
+  price DECIMAL(10, 2) NOT NULL
 );
