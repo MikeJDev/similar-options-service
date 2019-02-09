@@ -9,7 +9,7 @@ const db = require('../database/index.js');
 
 app.use(express.static('client/dist'));
 
-app.get('/', (req, res) => {
+app.get('/getFiveRandom', (req, res) => {
   console.log('Heard that!');
   // return 5 random data sets when the page loads
   // NOTE: Am running tests using postman

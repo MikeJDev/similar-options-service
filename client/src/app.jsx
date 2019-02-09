@@ -5,7 +5,21 @@ import Axios from "axios";
 class App extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            products: []
+        }
     }
+    
+    componentDidMount() {
+        let url = "/getFiveRandom";
+        Axios.get(url).then(response => {
+          console.log('Data returned is --> ', response.data);
+          this.setState({
+            products: response.data
+          });
+        });
+      }
+
 
     render() {
         return (
@@ -16,4 +30,4 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('tony'));
