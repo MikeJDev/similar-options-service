@@ -19,24 +19,28 @@ class App extends React.Component {
             products: response.data
           });
         });
-
-
     }
-    
-    
 
     render() {
-        // const componentStyle = {
-        //     li 
-        //         display:inline;
-            
-        // }
         return (
             <div>
+              <h2 style={sectionTitle} class="section-title"><span style={titleUnderline} id="title-underline">Similar Options to Consider</span></h2>
               <ProductList products={this.state.products}/>
             </div>
         )
     }
 }
+
+const sectionTitle = {
+    borderBottom: "1px solid black",
+    fontWeight: 300,
+    fontSize: "2.2em",
+    fontFamily: 'helvetica-neue-light, Helvetica Neue, Helvetica',
+    marginLeft: "3%"
+}
+
+const titleUnderline = {
+    borderBottom: "4px solid #f96302"
+}  
 
 ReactDOM.render(<App />, document.getElementById('tony'));

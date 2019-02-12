@@ -3,17 +3,22 @@ import Axios from "axios";
 import ProductListItem from "./productListItem.jsx";
 
 const ProductList = (props) => {
-    const componentStyle = {
-      listStyleType: "none"
-    }
     return (
-    // <ul style={{display: "inline"}}>
-    <ul style={componentStyle}>
-       {props.products.map((product, key) => {
-         return <ProductListItem product={product} key={key}/>
-       })} 
-    </ul>
+    <div class="product-list" style={productListStyle}>
+      {props.products.map((product, key) => {
+        return <ProductListItem product={product} key={key}/>
+      })} 
+    </div>
     )
 };
-  
+
+const productListStyle = {
+  display: "grid",
+  gridTemplateColumns: "20% 20% 20% 20% 20%",
+  width: "98%",
+  marginLeft: "3%",
+  marginRight: "2%",
+  fontFamily: "helvetica-neue"
+}
+
 export default ProductList;
