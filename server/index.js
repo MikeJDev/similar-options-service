@@ -14,6 +14,8 @@ app.get('/getFiveRandom', (req, res) => {
   // return 5 random data sets when the page loads
   // NOTE: Am running tests using postman
   
+  //this array is deliberately declared with "let".  While loop in line 30 re-sets variable to empty array
+  //when there are duplicates
   let randomFiveProducts = [];
   
   const generateFiveRandomProducts = function() {
@@ -23,10 +25,10 @@ app.get('/getFiveRandom', (req, res) => {
   }
   
   generateFiveRandomProducts();
-  
+
   //confirm that randomFiveProducts array has no duplicate product ids
   while( new Set(randomFiveProducts).size !== 5) {
-    console.log(randomFiveProducts)
+    //console.log(randomFiveProducts)
     randomFiveProducts = [];
     generateFiveRandomProducts();
   }
