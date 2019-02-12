@@ -15,7 +15,7 @@ const ProductList = (props) => {
 const productListStyle = {
   display: "grid",
   gridTemplateColumns: "20% 20% 20% 20% 20%",
-  width: "98%",
+  width: "95%",
   marginLeft: "3%",
   marginRight: "2%",
   fontFamily: "helvetica-neue"

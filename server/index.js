@@ -14,14 +14,23 @@ app.get('/getFiveRandom', (req, res) => {
   // return 5 random data sets when the page loads
   // NOTE: Am running tests using postman
   
-  let randomProduct1 = Math.floor(Math.random() * 100) + 1;
-  let randomProduct2 = Math.floor(Math.random() * 100) + 1;
-  let randomProduct3 = Math.floor(Math.random() * 100) + 1;
-  let randomProduct4 = Math.floor(Math.random() * 100) + 1;
-  let randomProduct5 = Math.floor(Math.random() * 100) + 1;
-
-  let queryString = `SELECT * from products where (product_id = ${randomProduct1}) OR (product_id = ${randomProduct2}) OR (product_id = ${randomProduct3}) OR (product_id = ${randomProduct4}) OR (product_id = ${randomProduct5});`;
+  const randomFiveProducts = [];
   
+  const generateFiveRandomProducts = function() {
+    for(let i = 0; i < 5; i++) {
+      randomFiveProducts.push(Math.floor(Math.random() * 100) + 1);
+    }
+  }
+  
+  generateFiveRandomProducts();
+  
+  //confirm that randomFiveProducts array has no duplicate product ids
+  while( new Set(randomFiveProducts).size !== 5) {
+    generateFiveRandomProducts();
+  }
+
+  let queryString = `SELECT * from products where (product_id = ${randomFiveProducts[0]}) OR (product_id = ${randomFiveProducts[1]}) OR (product_id = ${randomFiveProducts[2]}) OR (product_id = ${randomFiveProducts[3]}) OR (product_id = ${randomFiveProducts[4]});`;
+
   db.query(queryString, (err, result) => {
     if(err) {
       console.log('Error with get request for one of the five random rows, error is: ', err);

@@ -36,7 +36,9 @@ const sectionTitle = {
     fontWeight: 300,
     fontSize: "2.2em",
     fontFamily: 'helvetica-neue-light, Helvetica Neue, Helvetica',
-    marginLeft: "3%"
+    marginLeft: "3%",
+    text: "#333",
+    marginRight: "2%"
 }
 
 const titleUnderline = {
