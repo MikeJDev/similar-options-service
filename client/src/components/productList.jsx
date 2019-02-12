@@ -4,7 +4,7 @@ import ProductListItem from "./productListItem.jsx";
 
 const ProductList = (props) => {
     return (
-    <div class="product-list" style={productListStyle}>
+    <div className="product-list" style={productListStyle}>
       {props.products.map((product, key) => {
         return <ProductListItem product={product} key={key}/>
       })} 

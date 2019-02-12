@@ -24,7 +24,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-              <h2 style={sectionTitle} class="section-title"><span style={titleUnderline} id="title-underline">Similar Options to Consider</span></h2>
+              <h2 style={sectionTitle} className="section-title"><span style={titleUnderline} id="title-underline">Similar Options to Consider</span></h2>
               <ProductList products={this.state.products}/>
             </div>
         )

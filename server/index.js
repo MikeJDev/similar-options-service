@@ -14,7 +14,7 @@ app.get('/getFiveRandom', (req, res) => {
   // return 5 random data sets when the page loads
   // NOTE: Am running tests using postman
   
-  const randomFiveProducts = [];
+  let randomFiveProducts = [];
   
   const generateFiveRandomProducts = function() {
     for(let i = 0; i < 5; i++) {
@@ -26,6 +26,8 @@ app.get('/getFiveRandom', (req, res) => {
   
   //confirm that randomFiveProducts array has no duplicate product ids
   while( new Set(randomFiveProducts).size !== 5) {
+    console.log(randomFiveProducts)
+    randomFiveProducts = [];
     generateFiveRandomProducts();
   }
 
