@@ -10,7 +10,7 @@ const ProductListReview = (props) => {
     <span style={noStar} className="fa fa-star"></span>
     <span style={noStar} className="fa fa-star"></span>
     <span style={noStar} className="fa fa-star"></span>
-    <span>{props.reviewCount}</span>
+    <span style={reviewCountStyle}>{"(" + props.reviewCount + ")"}</span>
   </div>) : props.stars === 1 ? 
   (<div>
     <span style={star} className="fa fa-star"></span>
@@ -18,7 +18,7 @@ const ProductListReview = (props) => {
     <span style={noStar} className="fa fa-star"></span>
     <span style={noStar} className="fa fa-star"></span>
     <span style={noStar} className="fa fa-star"></span>
-    <span>{props.reviewCount}</span>
+    <span style={reviewCountStyle}>{"(" + props.reviewCount + ")"}</span>
   </div>) : props.stars === 2 ? 
   (<div>
     <span style={star} className="fa fa-star"></span>
@@ -26,7 +26,7 @@ const ProductListReview = (props) => {
     <span style={noStar} className="fa fa-star"></span>
     <span style={noStar} className="fa fa-star"></span>
     <span style={noStar} className="fa fa-star"></span>
-    <span>{props.reviewCount}</span>
+    <span style={reviewCountStyle}>{"(" + props.reviewCount + ")"}</span>
   </div>) : props.stars === 3 ? 
   (<div>
     <span style={star} className="fa fa-star"></span>
@@ -34,7 +34,7 @@ const ProductListReview = (props) => {
     <span style={star} className="fa fa-star"></span>
     <span style={noStar} className="fa fa-star"></span>
     <span style={noStar} className="fa fa-star"></span>
-    <span>{props.reviewCount}</span>
+    <span style={reviewCountStyle}>{"(" + props.reviewCount + ")"}</span>
   </div>) : props.stars === 4 ? 
   (<div>
     <span style={star} className="fa fa-star"></span>
@@ -42,7 +42,7 @@ const ProductListReview = (props) => {
     <span style={star} className="fa fa-star"></span>
     <span style={star} className="fa fa-star"></span>
     <span style={noStar} className="fa fa-star"></span>
-    <span>{props.reviewCount}</span>
+    <span style={reviewCountStyle}>{"(" + props.reviewCount + ")"}</span>
   </div>) : 
   (<div>
     <span style={star} className="fa fa-star"></span>
@@ -50,16 +50,20 @@ const ProductListReview = (props) => {
     <span style={star} className="fa fa-star"></span>
     <span style={star} className="fa fa-star"></span>
     <span style={star} className="fa fa-star"></span>
-    <span>{props.reviewCount}</span>
-  </div>)
-}
-
+    <span style={reviewCountStyle}>{"(" + props.reviewCount + ")"}</span>
+  </div>);
+};
 
 const star = {
   color: "#f96302"
-}
+};
+
 const noStar = {
   color: "grey"
-}
+};
+
+const reviewCountStyle = {
+  marginLeft: 10
+};
 
 export default ProductListReview;

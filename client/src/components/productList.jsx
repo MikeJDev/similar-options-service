@@ -3,13 +3,13 @@ import Axios from "axios";
 import ProductListItem from "./productListItem.jsx";
 
 const ProductList = (props) => {
-    return (
+  return (
     <div className="product-list" style={productListStyle}>
       {props.products.map((product, key) => {
         return <ProductListItem product={product} key={key}/>
       })} 
     </div>
-    )
+  );
 };
 
 const productListStyle = {
@@ -19,6 +19,6 @@ const productListStyle = {
   marginLeft: "3%",
   marginRight: "2%",
   fontFamily: "helvetica-neue"
-}
+};
 
 export default ProductList;
