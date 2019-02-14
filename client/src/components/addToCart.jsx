@@ -37,11 +37,14 @@ class AddToCart extends React.Component {
 
 const confirmationStyle = {
   color: "#f96302",
-  fontFamily: "helvetica-neue-bold,Helvetica Neue,Helvetica"
+  fontFamily: "helvetica-neue-bold,Helvetica Neue,Helvetica",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center"
 };
 
 const addToCartStyle = {
-  width: 166,
+  width: 170,
   height: 34,
   border: "2px solid #f96302",
   color: "#f96302",

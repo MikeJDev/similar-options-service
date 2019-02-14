@@ -34,7 +34,6 @@ app.get('/getFiveRandom', (req, res) => {
   }
 
   let queryString = `SELECT * from products where (product_id = ${randomFiveProducts[0]}) OR (product_id = ${randomFiveProducts[1]}) OR (product_id = ${randomFiveProducts[2]}) OR (product_id = ${randomFiveProducts[3]}) OR (product_id = ${randomFiveProducts[4]});`;
-
   db.query(queryString, (err, result) => {
     if(err) {
       console.log('Error with get request for one of the five random rows, error is: ', err);
