@@ -21,7 +21,6 @@ const getWholeNumber = (price) => {
 };
 
 const getDecimal = (price) => {
-  console.log("price is: ", price)
   return (price % 1).toFixed(2).split('.')[1];
 };
 

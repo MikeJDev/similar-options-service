@@ -8,7 +8,7 @@ class AddToCart extends React.Component {
       hover: false,
       itemInCart: false
     };
-  };
+  }; 
   
   toggleStyle() {
     this.setState({hover: !this.state.hover});
