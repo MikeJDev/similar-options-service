@@ -6,7 +6,7 @@ import AddToCart from "./addToCart.jsx";
 const ProductListItem = (props) => {
   return (
     <div style={gridStyleItem}>
-      <img src={props.product.image_src}></img>
+      <div style={imageStyle}><img src={props.product.image_src}></img></div>
       <div><span style={productNameStyle}>{props.product.product_name} </span>
         {props.product.product_description}</div>
       <ProductListReview stars={props.product.review_stars} reviewCount={props.product.review_count}/>
@@ -21,14 +21,14 @@ const getWholeNumber = (price) => {
 };
 
 const getDecimal = (price) => {
-  console.log("price is: ", price)
-  return (((price % 1).toFixed(2)) * 100).toFixed(0); 
+  return (price % 1).toFixed(2).split('.')[1];
 };
 
 const gridStyleItem = {
   margin: 15,
   display: "grid",
-  gridTemplateRows: "160px 60px 25px 28px 1fr",
+  gridTemplateRows: "160px 80px 25px 28px 100px",
+  width: 180
 };
 
 const productNameStyle = {
@@ -51,5 +51,11 @@ const endOfLineStyle = {
   fontWeight: "normal", 
   color: "#333"
 };
+
+const imageStyle = {
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center"
+}
 
 export default ProductListItem;

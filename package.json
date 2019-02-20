@@ -1,5 +1,10 @@
 {
   "name": "similar-options-service",
+  "jest": {
+    "moduleDirectories": [
+    "node_modules"
+    ]
+  },
   "description": "> Project description",
   "author": "",
   "license": "ISC",
@@ -9,7 +14,8 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "seed": "node database/seed.js",
-    "react-dev": "webpack -d --watch"
+    "react-dev": "webpack -d --watch",
+    "test": "jest"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -27,6 +33,7 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.5",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git",
+    "jest": "^24.1.0",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3"
   },

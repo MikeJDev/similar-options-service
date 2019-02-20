@@ -16,30 +16,28 @@ app.get('/getFiveRandom', (req, res) => {
   
   //this array is deliberately declared with "let".  While loop in line 30 re-sets variable to empty array
   //when there are duplicates
-  let randomFiveProducts = [];
+  let randomFiveProductIDs = [];
   
-  const generateFiveRandomProducts = function() {
+  const generateFiveRandomProductIDs = () => {
     for(let i = 0; i < 5; i++) {
-      randomFiveProducts.push(Math.floor(Math.random() * 100) + 1);
+      randomFiveProductIDs.push(Math.floor(Math.random() * 100) + 1);
     }
   }
   
-  generateFiveRandomProducts();
+  generateFiveRandomProductIDs();
 
-  //confirm that randomFiveProducts array has no duplicate product ids
-  while( new Set(randomFiveProducts).size !== 5) {
-    //console.log(randomFiveProducts)
-    randomFiveProducts = [];
-    generateFiveRandomProducts();
+  //confirm that randomFiveProductIds array has no duplicates
+  while( new Set(randomFiveProductIDs).size !== 5) {
+    randomFiveProductIDs = [];
+    generateFiveRandomProductIDs();
   }
 
-  let queryString = `SELECT * from products where (product_id = ${randomFiveProducts[0]}) OR (product_id = ${randomFiveProducts[1]}) OR (product_id = ${randomFiveProducts[2]}) OR (product_id = ${randomFiveProducts[3]}) OR (product_id = ${randomFiveProducts[4]});`;
-
+  let queryString = `SELECT * from products where (product_id = ${randomFiveProductIDs[0]}) OR (product_id = ${randomFiveProductIDs[1]}) OR (product_id = ${randomFiveProductIDs[2]}) OR (product_id = ${randomFiveProductIDs[3]}) OR (product_id = ${randomFiveProductIDs[4]});`;
   db.query(queryString, (err, result) => {
     if(err) {
-      console.log('Error with get request for one of the five random rows, error is: ', err);
+      console.log('Error with GET request for five random products, error is: ', err);
     } else {
-      console.log("Successful get request for one of the five random rows!");
+      console.log("Successful GET request for five random products");
       res.send(result);
     }
   });

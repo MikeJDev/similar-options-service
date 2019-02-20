@@ -4,9 +4,9 @@ const connection = mysql.createConnection(config);
 
 connection.connect(err => {
   if(err) {
-    console.log('Error with DB connections')
+    console.log('Error with DB connections.  Error is: ', err);
   } else {
-    console.log('We are connected to db!')
+    console.log('We are connected to db!');
   }
 });
 
