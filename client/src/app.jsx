@@ -45,4 +45,4 @@ const titleUnderline = {
   borderBottom: "4px solid #f96302"
 };
 
-ReactDOM.render(<App />, document.getElementById('tony'));
+ReactDOM.render(<App />, document.getElementById('similar-options'));
