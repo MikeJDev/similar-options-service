@@ -7,7 +7,7 @@ const ProductListItem = (props) => {
   return (
     <div style={gridStyleItem}>
       <div style={imageStyle}><img src={props.product.image_src}></img></div>
-      <div><span style={productNameStyle}>{props.product.product_name} </span>
+      <div onClick={updateProduct(props.product.product_id)}><span style={productNameStyle}>{props.product.product_name} </span>
         {props.product.product_description}</div>
       <ProductListReview stars={props.product.review_stars} reviewCount={props.product.review_count}/>
       <div style={priceDivStyle}>$<span style={wholeNumberStyle}>{getWholeNumber(props.product.price)}</span>{getDecimal(props.product.price)}<span style={endOfLineStyle}>/each</span></div>
@@ -15,6 +15,13 @@ const ProductListItem = (props) => {
     </div>
   );
 }; 
+
+const updateProduct = (item) => () => {
+  //console.log('item is: ', item)
+  const event = new CustomEvent('updateProduct', { detail: item });
+  console.log(event);
+  window.dispatchEvent(event);
+}
 
 const getWholeNumber = (price) => {
   return Math.floor(price);

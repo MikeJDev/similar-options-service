@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Axios from "axios";
-import ProductList from "./components/productList.jsx";
+import ProductList from "./productList.jsx";
 
-class App extends React.Component {
+class SimilarOptions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,6 +31,7 @@ componentDidMount() {
   };
 };
 
+
 const sectionTitle = {
   borderBottom: "1px solid black",
   fontWeight: 300,
@@ -45,4 +46,5 @@ const titleUnderline = {
   borderBottom: "4px solid #f96302"
 };
 
-ReactDOM.render(<App />, document.getElementById('similar-options'));
+export default SimilarOptions;
+
