@@ -10,6 +10,12 @@ class AddToCart extends React.Component {
     };
   }; 
   
+  componentDidMount() {
+    window.addEventListener('updateProduct', (event) => {
+      this.setState({itemInCart: false});
+    }, false);
+  };
+
   toggleStyle() {
     this.setState({hover: !this.state.hover});
   };
