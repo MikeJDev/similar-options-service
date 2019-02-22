@@ -24,18 +24,18 @@ class ProductListItem extends React.Component {
     };
     return (
       <div style={gridStyleItem}>
-      <div style={imageStyle}><img src={this.props.product.image_src}></img></div>
-      <div 
-        onMouseEnter={this.toggleStyle.bind(this)} 
-        onMouseLeave={this.toggleStyle.bind(this)}
-        style={hoverStyle}
-        onClick={updateProduct(this.props.product.product_id)}>
-        <span style={productNameStyle}>{this.props.product.product_name} </span>
-        {this.props.product.product_description}
-      </div>
-      <ProductListReview stars={this.props.product.review_stars} reviewCount={this.props.product.review_count}/>
-      <div style={priceDivStyle}>$<span style={wholeNumberStyle}>{getWholeNumber(this.props.product.price)}</span>{getDecimal(this.props.product.price)}<span style={endOfLineStyle}>/each</span></div>
-      <AddToCart />     
+        <div style={imageStyle}><img src={this.props.product.image_src}></img></div>
+        <div 
+          onMouseEnter={this.toggleStyle.bind(this)} 
+          onMouseLeave={this.toggleStyle.bind(this)}
+          style={hoverStyle}
+          onClick={updateProduct(this.props.product.product_id)}
+        ><span style={productNameStyle}>{this.props.product.product_name} </span>
+          {this.props.product.product_description}
+        </div>
+        <ProductListReview stars={this.props.product.review_stars} reviewCount={this.props.product.review_count}/>
+        <div style={priceDivStyle}>$<span style={wholeNumberStyle}>{getWholeNumber(this.props.product.price)}</span>{getDecimal(this.props.product.price)}<span style={endOfLineStyle}>/each</span></div>
+        <AddToCart />     
       </div>
     );
   };

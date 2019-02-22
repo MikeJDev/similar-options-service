@@ -8,7 +8,6 @@ const db = require('../database/index.js');
 
 
 app.use(express.static('client/dist'));
-//app.use(express.static('client/src'));
 
 app.get('/getFiveRandom', (req, res) => {
   console.log('Heard that!');
