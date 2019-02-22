@@ -13,13 +13,21 @@ class SimilarOptions extends React.Component {
     
 componentDidMount() {
   let url = "/getFiveRandom";
+  Axios.get(url).then(response => {
+    console.log('Data returned is --> ', response.data);
+    this.setState({
+      products: response.data
+    });
+  });
+  window.addEventListener('updateProduct', (event) => {
+    let url = "/getFiveRandom";
     Axios.get(url).then(response => {
-      console.log('Data returned is --> ', response.data);
       this.setState({
         products: response.data
       });
     });
-  };
+  }, false);
+};
 
   render() {
     return (
