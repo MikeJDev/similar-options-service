@@ -44,7 +44,7 @@ class ProductListItem extends React.Component {
 const updateProduct = (item) => () => {
   //console.log('item is: ', item)
   const event = new CustomEvent('updateProduct', { detail: item });
-  //console.log(event);
+  console.log("Event dispacted is -->", event);
   window.dispatchEvent(event);
   window.scrollTo(0, 0);
 }
