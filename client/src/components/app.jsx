@@ -41,13 +41,16 @@ componentDidMount() {
 
 
 const sectionTitle = {
-  borderBottom: "1px solid black",
+  // borderBottom: "1px solid black",
+  borderBottom: "1px solid rgb(204, 204, 204)",
+  // fontSize: "2.2em",
+  fontSize: "32px",
   fontWeight: 300,
-  fontSize: "2.2em",
   fontFamily: 'helvetica-neue-light, Helvetica Neue, Helvetica',
-  marginLeft: "3%",
+  //width: "90%",
+  marginLeft: "5.1%",
   text: "#333",
-  marginRight: "2%"
+  marginRight: "5%"
 };
 
 const titleUnderline = {

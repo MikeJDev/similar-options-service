@@ -16,7 +16,7 @@ const productListStyle = {
   display: "grid",
   gridTemplateColumns: "20% 20% 20% 20% 20%",
   width: "95%",
-  marginLeft: "3%",
+  marginLeft: "5%",
   marginRight: "2%",
   fontFamily: "helvetica-neue"
 };
