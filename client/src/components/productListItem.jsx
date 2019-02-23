@@ -23,7 +23,7 @@ class ProductListItem extends React.Component {
       hoverStyle = {textDecoration: "none"};
     };
     return (
-      <div style={gridStyleItem}>
+      <div style={productStyle}>
         <div style={imageStyle}><img src={this.props.product.image_src}></img></div>
         <div 
           onMouseEnter={this.toggleStyle.bind(this)} 
@@ -42,7 +42,6 @@ class ProductListItem extends React.Component {
 }
 
 const updateProduct = (item) => () => {
-  //console.log('item is: ', item)
   const event = new CustomEvent('updateProduct', { detail: item });
   console.log("Event dispacted is -->", event);
   window.dispatchEvent(event);
@@ -57,11 +56,12 @@ const getDecimal = (price) => {
   return (price % 1).toFixed(2).split('.')[1];
 };
 
-const gridStyleItem = {
+const productStyle = {
   margin: 15,
   display: "grid",
   gridTemplateRows: "160px 80px 25px 28px 100px",
-  width: 180
+  width: 180,
+  fontFamily: "helvetica-neue"
 };
 
 const productNameStyle = {

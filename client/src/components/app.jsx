@@ -1,14 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Axios from "axios";
-import ProductList from "./productList.jsx";
 import ProductListItem from "./productListItem.jsx";
-// import "~slick-carousel/slick/slick.css"; 
-// import "~slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 function NextArrow(props) {
-  const { className, style, onClick } = props;
+  const {className, style, onClick} = props;
   return (
     <div
       className={className}
@@ -16,10 +13,10 @@ function NextArrow(props) {
       onClick={onClick}
     />
   );
-}
+}; 
 
 function PrevArrow(props) {
-  const { className, style, onClick } = props;
+  const {className, style, onClick} = props;
   return (
     <div
       className={className}
@@ -27,7 +24,7 @@ function PrevArrow(props) {
       onClick={onClick}
     />
   );
-}
+};
 
 class SimilarOptions extends React.Component {
   constructor(props) {
@@ -37,23 +34,23 @@ class SimilarOptions extends React.Component {
     };
   };
     
-componentDidMount() {
-  let url = "/getFiveRandom";
-  Axios.get(url).then(response => {
-    console.log('Data returned is --> ', response.data);
-    this.setState({
-      products: response.data
-    });
-  });
-  window.addEventListener('updateProduct', (event) => {
+  componentDidMount() {
     let url = "/getFiveRandom";
     Axios.get(url).then(response => {
+      console.log('Data returned is --> ', response.data);
       this.setState({
         products: response.data
       });
     });
-  }, false);
-};
+    window.addEventListener('updateProduct', (event) => {
+      let url = "/getFiveRandom";
+      Axios.get(url).then(response => {
+        this.setState({
+          products: response.data
+        });
+      });
+    }, false);
+  };
 
   render() {
     const settings = {
@@ -65,64 +62,37 @@ componentDidMount() {
       nextArrow: <NextArrow />,
       prevArrow: <PrevArrow />
     };
-    return (
-      <div style={carouselDivStyle}>
-        <h2 style={sectionTitle} className="section-title"><span style={titleUnderline} id="title-underline">Similar Options to Consider</span></h2>
-        <div>
-        <Slider {...settings}>
-        {this.state.products.map((product, key) => {
-        return <ProductListItem product={product} key={key}/>
-        })} 
-          {/* <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div> */}
-
-
-        </Slider>
-
+     
+    return ( 
+      <div style={componentDivStyle}>
+        <h2 style={sectionTitleStyle} className="section-title"><span style={titleUnderlineStyle} id="title-underline">Similar Options to Consider</span></h2>
+        <div id="carousel-div">
+          <Slider {...settings}>
+            {this.state.products.map((product, key) => {
+              return <ProductListItem product={product} key={key}/>
+            })} 
+          </Slider>
         </div>
-        {/* <ProductList products={this.state.products}/> */}
       </div>
     );
   };
 };
 
-const carouselDivStyle = {
+const componentDivStyle = {
   marginLeft: "5.1%",
   marginRight: "5%"
 }
 
-const sectionTitle = {
-  // borderBottom: "1px solid black",
+const sectionTitleStyle = { 
   borderBottom: "1px solid rgb(204, 204, 204)",
-  // fontSize: "2.2em",
   fontSize: "32px",
   fontWeight: 300,
   fontFamily: 'helvetica-neue-light, Helvetica Neue, Helvetica',
-  //width: "90%",
-  // marginLeft: "5.1%",
-  text: "#333",
-  //marginRight: "5%"
+  text: "#333"
 };
 
-const titleUnderline = {
+const titleUnderlineStyle = {
   borderBottom: "4px solid #f96302"
 };
 
 export default SimilarOptions;
-

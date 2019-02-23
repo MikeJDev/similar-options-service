@@ -24,7 +24,7 @@ class AddToCart extends React.Component {
     this.setState({itemInCart: !this.state.itemInCart});
   };
 
-  render() {
+  render() { 
     let hoverStyle;
     if(this.state.hover) {
       hoverStyle = {backgroundColor: "#f96302", color: "white"};
@@ -32,7 +32,7 @@ class AddToCart extends React.Component {
       hoverStyle = {backgroundColor: "white", color: "#f96302"};
     };
     
-    return (
+    return ( 
       <div>
         <div onClick={() => this.handleClick()} onMouseEnter={this.toggleStyle.bind(this)} onMouseLeave={this.toggleStyle.bind(this)} style={Object.assign({}, addToCartStyle, hoverStyle)}>{this.state.itemInCart ? <p>Remove From Cart</p> : <p>Add To Cart</p>}</div>
         {this.state.itemInCart ? <p style={confirmationStyle}>Item added to cart</p> : <p></p>}
