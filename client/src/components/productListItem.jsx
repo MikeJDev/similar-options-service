@@ -18,9 +18,9 @@ class ProductListItem extends React.Component {
   render() {
     let hoverStyle;
     if(this.state.hover) {
-      hoverStyle = {textDecoration: "underline"};
+      hoverStyle = {textDecoration: "underline", cursor: "pointer"};
     } else {
-      hoverStyle = {textDecoration: "none"};
+      hoverStyle = {textDecoration: "none"}; 
     };
     return (
       <div style={productStyle}>

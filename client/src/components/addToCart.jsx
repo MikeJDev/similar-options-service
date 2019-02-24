@@ -27,9 +27,9 @@ class AddToCart extends React.Component {
   render() { 
     let hoverStyle;
     if(this.state.hover) {
-      hoverStyle = {backgroundColor: "#f96302", color: "white"};
+      hoverStyle = {backgroundColor: "#f96302", color: "white", cursor: "pointer"};
     } else {
-      hoverStyle = {backgroundColor: "white", color: "#f96302"};
+      hoverStyle = {backgroundColor: "white", color: "#f96302", cursor: "pointer"};
     };
     
     return ( 
