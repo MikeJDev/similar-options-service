@@ -1,28 +1,44 @@
-const data = require('./mockdata.js');
-const db = require('./index.js');
-//console.log('data is ', data);
+const db = require("./index.js");
+const mongoose = require("mongoose");
+const faker = require("faker");
 
-let queryForData = `SELECT * FROM products;`;
-
-db.query(queryForData, (err, result) => {
-  if(err) {
-    console.log('Error with query about presence of data in table');
-  } else {
-    console.log('Successful query about presense of data in table');
-    if(result.length === 0) {
-      console.log('Table is empty, proceeding to seed data into table');
-      data.forEach(product=> {
-        let queryStr = `INSERT INTO products (product_name, product_description, image_src, review_stars, review_count, price) VALUES ("${product.product_name}","${product.product_description}","${product.image_src}", "${product.review_stars}", "${product.review_count}", "${product.price}");`;
-        db.query(queryStr, (err, result) => {
-          if(err) {
-            console.log('Error with insertion into database, err is: ', err);
-          } else {
-            console.log('Successful insertion');
-          }
-        })
-      })
-    } else {
-      console.log('Table has already been seeded with data');
-    }
-  }
+const productSchema = mongoose.Schema({
+  product_name: String,
+  image: String,
+  price: String
 });
+
+
+let Product = mongoose.model("Product", productSchema);
+
+let name = faker.commerce.productName();
+let image = faker.image.imageUrl();
+let price = faker.commerce.price();
+
+let item = new Product({
+  product_name: `${name}`,
+  image: `${image}`,
+  price: `$${price}`
+});
+
+async function seed(item) {
+  for (let i = 0; i < 100000; i++) {
+    await item
+      .save()
+      .then(success => {
+        console.log("item is added", success);
+      })
+      .catch(err => {
+        console.log("err:", err);
+      });
+  }
+}
+seed(item);
+
+// db.Product.remove({})
+//   .then(() => {
+//     db.Product.insertMany(data)
+//     .then((success) => {
+//       console.log('successfully seeded db')
+//     })
+//   }).catch(err => console.log('error'))
