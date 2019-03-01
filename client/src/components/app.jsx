@@ -5,7 +5,7 @@ import ProductListItem from "./productListItem.jsx";
 import Slider from "react-slick";
 
 function NextArrow(props) {
-  const {className, style, onClick} = props;
+  const { className, style, onClick } = props;
   return (
     <div
       className={className}
@@ -13,10 +13,10 @@ function NextArrow(props) {
       onClick={onClick}
     />
   );
-}; 
+}
 
 function PrevArrow(props) {
-  const {className, style, onClick} = props;
+  const { className, style, onClick } = props;
   return (
     <div
       className={className}
@@ -24,33 +24,37 @@ function PrevArrow(props) {
       onClick={onClick}
     />
   );
-};
+}
 
 class SimilarOptions extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-    products: []
+      products: []
     };
-  };
-    
+  }
+
   componentDidMount() {
     let url = "/getFiveRandom";
     Axios.get(url).then(response => {
-      console.log('Data returned is --> ', response.data);
+      console.log("Data returned is --> ", response.data);
       this.setState({
         products: response.data
       });
     });
-    window.addEventListener('updateProduct', (event) => {
-      let url = "/getFiveRandom";
-      Axios.get(url).then(response => {
-        this.setState({
-          products: response.data
+    window.addEventListener(
+      "updateProduct",
+      event => {
+        let url = "/getFiveRandom";
+        Axios.get(url).then(response => {
+          this.setState({
+            products: response.data
+          });
         });
-      });
-    }, false);
-  };
+      },
+      false
+    );
+  }
 
   render() {
     const settings = {
@@ -62,32 +66,36 @@ class SimilarOptions extends React.Component {
       nextArrow: <NextArrow />,
       prevArrow: <PrevArrow />
     };
-     
-    return ( 
+
+    return (
       <div style={componentDivStyle}>
-        <h2 style={sectionTitleStyle} className="section-title"><span style={titleUnderlineStyle} id="title-underline">Similar Options to Consider</span></h2>
+        <h2 style={sectionTitleStyle} className="section-title">
+          <span style={titleUnderlineStyle} id="title-underline">
+            Similar Options to Consider
+          </span>
+        </h2>
         <div id="carousel-div">
           <Slider {...settings}>
             {this.state.products.map((product, key) => {
-              return <ProductListItem product={product} key={key}/>
-            })} 
+              return <ProductListItem product={product} key={key} />;
+            })}
           </Slider>
         </div>
       </div>
     );
-  };
-};
+  }
+}
 
 const componentDivStyle = {
   marginLeft: "5.1%",
   marginRight: "5%"
-}
+};
 
-const sectionTitleStyle = { 
+const sectionTitleStyle = {
   borderBottom: "1px solid rgb(204, 204, 204)",
   fontSize: "32px",
   fontWeight: 300,
-  fontFamily: 'helvetica-neue-light, Helvetica Neue, Helvetica',
+  fontFamily: "helvetica-neue-light, Helvetica Neue, Helvetica",
   text: "#333"
 };
 
