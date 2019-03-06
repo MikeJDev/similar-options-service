@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const faker = require("faker");
 
 const productSchema = mongoose.Schema({
-  _id: Number,
+  // _id: Number,
   product_name: String,
   image: String,
   price: Number
@@ -30,6 +30,8 @@ async function seed() {
   }
 }
 seed();
+
+module.exports.Product = Product
 //mongoexport --db sdc --products --csv --type=csv --out newproducts.csv --fields product_name,image,price
 
 // mongoimport --db sdc --collection products --type csv --file /Users/mikejanes/Desktop/prodwithnumbers.csv --headerline --numInsertionWorkers 8

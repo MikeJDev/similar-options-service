@@ -41,17 +41,17 @@ class SimilarOptions extends React.Component {
       //   products: response.data
       // });
     });
-    window.addEventListener(
-      "updateProduct",
-      event => {
-        Axios.get("/getFiveRandom").then(response => {
-          this.setState({
-            products: response.data
-          });
-        });
-      },
-      false
-    );
+    // window.addEventListener(
+    //   "updateProduct",
+    //   event => {
+    //     Axios.get("/getFiveRandom").then(response => {
+    //       this.setState({
+    //         products: response.data
+    //       });
+    //     });
+    //   },
+    //   false
+    // );
   }
 
   render() {
