@@ -25,7 +25,7 @@ function PrevArrow(props) {
     />
   );
 }
-
+//class starts here
 class SimilarOptions extends React.Component {
   constructor(props) {
     super(props);
@@ -35,18 +35,16 @@ class SimilarOptions extends React.Component {
   }
 
   componentDidMount() {
-    let url = "/getFiveRandom";
-    Axios.get(url).then(response => {
+    Axios.get("/getFiveRandom").then(response => {
       console.log("Data returned is --> ", response.data);
-      this.setState({
-        products: response.data
-      });
+      // this.setState({
+      //   products: response.data
+      // });
     });
     window.addEventListener(
       "updateProduct",
       event => {
-        let url = "/getFiveRandom";
-        Axios.get(url).then(response => {
+        Axios.get("/getFiveRandom").then(response => {
           this.setState({
             products: response.data
           });
@@ -76,9 +74,9 @@ class SimilarOptions extends React.Component {
         </h2>
         <div id="carousel-div">
           <Slider {...settings}>
-            {this.state.products.map((product, key) => {
+            {/* {this.state.products.map((product, key) => {
               return <ProductListItem product={product} key={key} />;
-            })}
+            })} */}
           </Slider>
         </div>
       </div>
